@@ -15,7 +15,9 @@ int main(int argc, char *argv[])
 	snd_output_stdio_open(&output, output_location, "w");
 	if (snd_config != NULL) {
 		snd_config_save(snd_config, output);
+		snd_output_flush(output);
 		printf("saved config to %s\n", output_location);
 	}
+	snd_output_close(output);
 	return 0;
 }
