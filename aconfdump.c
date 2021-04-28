@@ -37,7 +37,11 @@ int main(int argc, char *argv[])
 		if (search_query == NULL) {
 			cfg2 = snd_config;
 		} else {
-			snd_config_search(snd_config, search_query, &cfg2);
+			err = snd_config_search(snd_config, search_query, &cfg2);
+			if (err < 0) {
+				fprintf(stderr, "Expression '%s' not found in tree\n", search_query);
+				exit(EXIT_FAILURE);
+			}
 		}
 		snd_config_save(cfg2, output);
 		snd_output_flush(output);
