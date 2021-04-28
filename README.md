@@ -5,6 +5,6 @@ Simple helper script to dump the full alsa configuration tree.
 ## Usage
 
 ```
-./aconfdump <output_location>
+./aconfdump [-o output location] [-s search query]
 ```
 
